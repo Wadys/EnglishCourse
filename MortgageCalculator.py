@@ -9,9 +9,12 @@ rate = 0
 if salary >= 2000:
     print("You are eligible for a mortgage!!!")
     creditScore = int(input("What is your credit score? "))
-    if creditScore > 800:
+    #New logic to include rate of 3%. when creditScore between 900 and 1000 
+    if creditScore >= 900 and creditScore <= 1000:
+        rate = 3
+    elif creditScore > 800:
         rate = 4
-    elif 750 < creditScore:
+    elif creditScore > 750:
         rate = 6    
     else:
         rate = 8

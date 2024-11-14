@@ -5,28 +5,30 @@
 # Large Burger (L) : $10
 # Add Mushroom : For Mini and Normal = $1, For Large = $2
 # Extra Cheese : $1
-burgerSise = input("Please select a size for your Burger Press:\n 'M' for Mini\n 'N' for Normal\n 'L' for Large: ").upper
-addMushrooms = input("Do you want to add Mushrooms to your order? 'Y'/'N': ").upper
-extraCheese = input("Do you want to add Extra Cheese to your order? 'Y'/'N': ").upper
+print("Welcome to Burger Shop!")
+burgerSise = input("What size Burger do you want? M, N or L: ")
+addMushrooms = input("Do you want Mushrooms: ")
+extraCheese = input("Do you want Extra Cheese: ")
 burgerPrice = 0
 if burgerSise.upper == "M":
     burgerPrice = 5
-elif burgerSise == "n":
+elif burgerSise == "N":
     burgerPrice = 8
-elif burgerSise == "l":
+elif burgerSise == "L":
     burgerPrice = 10
 else:
     pass
-if addMushrooms == 'y':
-    if burgerSise == 'm' or burgerSise == 'n':
+if addMushrooms == 'Y':
+    if burgerSise == 'M' or burgerSise == 'N':
         burgerPrice = burgerPrice + 1
     elif burgerSise == 'l':
         burgerPrice = burgerPrice + 2
     else:
         pass
-if extraCheese == 'y':
+if extraCheese == 'Y':
         burgerPrice = burgerPrice + 1
 else:
     pass
-print(f"Your {burgerSise}, with mushrooms {addMushrooms} and extra cheese {extraCheese}")
 print(f"Your final bill is: ${burgerPrice}")
+
+#git remote add origin https://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@github.com/Wadys/EnglishCourse

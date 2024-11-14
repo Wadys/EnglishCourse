@@ -1,0 +1,30 @@
+print(len(input("What is your name?")))
+
+print('My First Program') 
+
+print(2*2+2/2-2) # Order of execution pemdas(parenthesis, exponents, multiplication, division, addition, subtraction)
+print(2**3) # Prints Exponents
+print("Hello "+input("What is your name? ")) # Prints the input of the user and concatenates withe the string
+
+print("\nHello \nWorld") # \n is a line breake
+
+##Calculation of how many weeks in a given number of years
+years = input("Enter number of years ")
+weeks = int(years) * 52
+print("There are "+str(weeks)+" weeks in "+years+" years.")
+
+#Calculation of how many weeks in a given number of years
+#Using F function to simplify put f before the string and the varible in {} 
+years = input("Enter number of years ")
+weeks = int(years) * 52
+print(f"There are {weeks} weeks in {years} years")
+
+
+#Rounding function
+print(10/3)
+print(round(10/3))
+print(round(10/3, 2))
+print(round(3.56789))
+print(round(3.56789,1))
+print(round(3.56789,2))
+print(round(3.56789,3))

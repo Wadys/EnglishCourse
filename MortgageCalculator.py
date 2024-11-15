@@ -28,4 +28,4 @@ if salary >= 2000:
     print(f"Your interest rate is {rate}%")
 else:
     print("Sorry you are not eligible for a mortgage.") 
-
+    #Prueba Mela

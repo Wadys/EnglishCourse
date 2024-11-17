@@ -15,14 +15,9 @@ secondDigit+= concat.count("v")
 secondDigit+= concat.count("e")
 score = str(firstDigit)+str(secondDigit)
 score = int(score)
-print(score)
-score = 70
 if score < 10 or score > 85:
     print(f"Your score is {score}, you go toguether like coke and mentos.")
-elif score >=40:
-    if score <= 70:
+elif score >=40 and score <= 70: #Improved And logic
         print(f"Your score is {score}, you are alright together.")
-    else:
-        print(f"Your score is {score}.")
 else:
     print(f"Your score is {score}.")

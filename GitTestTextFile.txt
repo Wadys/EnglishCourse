@@ -1,4 +1,5 @@
-This a test file
-Here we are testing the creating of files in a new repository
-using VIM editor and modifing the information on it
-trying to merge the changes to GIT. Creating a conflict
+<<<<<<< HEAD
+This a test file that has been updated.
+Here we are testing the creation of files in a new repository
+using VIM editor and/or Nano and modifing the information on it
+trying to merge the changes to GIT. Creating a conflict to solve.

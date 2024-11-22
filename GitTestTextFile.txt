@@ -1,4 +1,4 @@
-This a test file
-Here we are testing the creating of files in a new repository
-using VIM editor and modifing the information on it
+This a test file has been updated 
+Here we are testing the creation of files in a new repository
+using VIM editor or Nano and modifing the information on it
 traing to merge the changes to GIT

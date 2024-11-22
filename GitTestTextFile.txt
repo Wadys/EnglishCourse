@@ -1,4 +1,4 @@
 This a test file
 Here we are testing the creating of files in a new repository
 using VIM editor and modifing the information on it
-traing to merge the changes to GIT
+trying to merge the changes to GIT. Creating a conflict

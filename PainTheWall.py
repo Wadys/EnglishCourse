@@ -4,12 +4,10 @@
 # of wall and  calculates the area of the wall and based on the area we can calculate 
 # number of cans of paint that we need.
 import math
-coverage = 4
-def area(hight, width):
-    areas = hight * width
-    return areas
+def calculate_can_number(height, width, coverage):
+    print(f"{math.ceil((height*width)/coverage)}")
 
 #print(area(2,5))
-hight = int(input("Enter hight of wall: "))
-width = int(input("Enter with of wall: "))
-print(f"{math.ceil(area(hight,width)/coverage)}")
+height = int(input("Enter height of wall: "))
+width = int(input("Enter width of wall: "))
+calculate_can_number(height, width, 4)

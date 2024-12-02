@@ -1,6 +1,7 @@
 # Implement a program which finds integer numbers from given List.
 import os
 def find_integer(list):
+    """Returns a list with integers in parameter list"""
     return_list = []
     for num in list:
         if type(num) == int:

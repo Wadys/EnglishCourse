@@ -21,13 +21,3 @@ def sum_above_average(p_list):
 os.system('cls')
 student_scores = [80, 60, 50, 65, 75, 55]
 print(f"Sum of Above Average Scores: {sum_above_average(student_scores)}")
-
-
-# def sum_score_above_average(list):
-#     score = 0
-#     for num in list:
-#         if num > 60:
-#             score += num
-#     return score
-# student_scores = [80, 60, 50, 65, 75, 55]
-# print(sum_score_above_average(student_scores))

@@ -9,7 +9,7 @@ def password_controller(p):
         return True
     else:
         return False
-#Main Program
+#Main Programs
 os.system('cls')
 print(password_controller("custompassword"))
 password_list = ["qwer","123456","abdcefgh","098765432"]

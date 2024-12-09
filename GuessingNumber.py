@@ -10,16 +10,24 @@
 # "Congratulations you did it in"
 import random
 import os
+import math
 os.system("cls")
-upperB = 100
-#int(input("Enter upper bound"))
-lowerB = 1
-#int(input("Enter lower bound"))
-guess = int(input(f"Guess a number between {lowerB} and {upperB}: "))
+lowerB = int(input("Enter lower bound: "))
+upperB = int(input("Enter upper bound: "))
+chance = int(math.log(upperB-lowerB+1,2))
 x = random.randint(lowerB, upperB)
-if x == guess:
-    print("Congratulations you did it in")
-elif guess > x:
-    print(f"You guessed too high {guess} > {x}")
-else:
-    print(f"You guessed too low  {guess} < {x}")
+print(f"You've only {round(chance,0)} chances to guess the number!")
+cont = 0
+while cont < chance:
+    cont += 1
+    guess = int(input(f"Guess a number between {lowerB} and {upperB}: "))
+    if x == guess:
+        print(f"Congratulations you did it in {cont} try")
+        break
+    elif guess > x:
+        print(f"You guessed too high")
+    else:
+        print(f"You guessed too low")
+if cont == chance:
+    print(f"The number is {x}") 
+    print("\tBetter luck next time!")

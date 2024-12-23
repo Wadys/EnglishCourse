@@ -1,0 +1,2 @@
+This a test file to verify if when having to repositories GIT automatically picks on hte repository I'm in just by folder location
+or if there is something specific I must do!!!

@@ -26,12 +26,15 @@ def define_winner(a, b):
                 print("Scissors cuts Paper! You win.") #Scissors vs Paper = Scissors
             else:
                 print("Rock smashes Scissors! You lose") #Scissors vs Rock = Rock
-while True:
-    os.system("cls")
-    user = input("Enter your selection:\n 1: Rock\n 2: Paper\n 3: Scissors\n")
-    computer = random.choice(options)
-    print(f"\nYou chose {user.capitalize()}, computer chose {computer.capitalize()}\n")
-    define_winner(user.capitalize(),computer)
-    play_again = input("Play again (Y/N)? ")
-    if play_again.capitalize() != 'Y':
-        break
+def menuprincipal():
+ #temp
+    while True:
+        os.system("cls")
+        
+        user = input("Enter your selection:\n 1: Rock\n 2: Paper\n 3: Scissors\n")
+        computer = random.choice(options)
+        print(f"\nYou chose {user.capitalize()}, computer chose {computer.capitalize()}\n")
+        define_winner(user.capitalize(),computer)
+        play_again = input("Play again (Y/N)? ")
+        if play_again.capitalize() != 'Y':
+            break

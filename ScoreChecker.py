@@ -6,7 +6,7 @@
 #  D >= 0.7
 #  F  < 0.6
 print("***Score Checher***")
-1score = input("Please enter your grade: ")
+score = input("Please enter your grade: ")
 try:
     score = float(score)
 except ValueError:

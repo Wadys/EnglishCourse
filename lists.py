@@ -337,3 +337,53 @@ list1 = ['a', 'b', ['c', ['d', 'e', ['f', 'g'], 'k'], 'l'], 'm', 'n']
 sublist = ["h", "i", "j"]
 list1[2][1][2].extend(sublist)
 print(list1)
+
+"""List Addition with Function:
+Implement a function which takes two parameters - a list and a value and returns new list with value inserted in it without modifying the original list.
+
+Example:
+```
+list1 = [1,2,3,4,5]
+list2 = custom_insert(list1, 6)
+print(list1)
+print(list2)
+```
+Output:
+[1,2,3,4,5]
+[1,2,3,4,5,6]
+"""
+
+def custom_insert(list, x):
+    lista = list[:]
+    lista.append(x)
+    return lista
+
+list1 = [1,2,3,4,5]
+list2 = custom_insert(list1, 6)
+print(list1)
+print(list2)
+
+"""
+Concatenate Two Lists in One List Item Wise
+
+Implement a function which takes two lists as parameter and return concatenation of these lists item wise.
+
+Example:
+list1 = ["Hello ", "take "]
+list2 = ["Dear", "Sir"]
+
+concatenate(list1, list2)
+
+Output:
+['Hello Dear', 'Hello Sir', 'take Dear', 'take Sir']"""
+
+def concatenate(list1, list2):
+    list3 = []
+    for item in list1:
+        for item2 in list2:
+            list3.append(str(item+item2))
+    return list3
+
+list1 = ["Hello ", "take "]
+list2 = ["Dear", "Sir"]
+print(concatenate(list1, list2))

@@ -7,8 +7,8 @@
 # make it upper case
 import random
 from os import system as s
-from HangmanArt import hangman_stages
-from HangmanArt import logo
+from AsciiArt import hangman_stages
+from AsciiArt import hangman_logo as logo
 def pick_word(list_p):
     '''Returns a random word from list''' 
     rando = random.randint(0,len(list_p)-1)

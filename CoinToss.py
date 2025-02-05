@@ -2,8 +2,13 @@
 # "Heads" or "Tails".
 
 import random
+from os import system as s
+from AsciiArt import cointoss_logo as logo
+s('cls')
+print(logo)
 heads = random.randint(0,1)
 if heads:
-    print('Heads')
+    print('> Heads')
 else:
-    print('Tailes')
+    print('> Tailes')
+print()

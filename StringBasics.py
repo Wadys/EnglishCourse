@@ -3,7 +3,7 @@ text = "d.o.g."
 text2 = text.replace('.','!')
 print(text2)
 
-#This finds the position where a character begius
+#This finds the position where a character begins
 data = 'From example.email@efu.co.uk Sat Sep 5 09:14:16 2021'
 at_index = data.find("@")
 print(at_index)

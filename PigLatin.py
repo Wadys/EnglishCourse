@@ -25,7 +25,7 @@ def firstLetterToLast(p_word):
     return p_word[1:] 
 sentence = input("Enter your text to convert to Pig Latin: ")
 sentence = sentence.split()
-new_sentence = []
+pig_latin = []
 index = 0
 while index != len(sentence):
     word = sentence[index]
@@ -34,7 +34,7 @@ while index != len(sentence):
     else:
         word = firstLetterToLast(word)
         word = word+"ay"
-    new_sentence.append(word)
+    pig_latin.append(word)
     index += 1
-new_sentence= " ".join(new_sentence)
+new_sentence= " ".join(pig_latin)
 print(new_sentence)

@@ -19,8 +19,3 @@ def find_words(text):
         return_list.extend(mo)
     return return_list
 print(find_words("I like Python for Everyone course. It is the best one out there."))
-
-# text ='''I like Python for Everyone course. It is the best one out there.'''
-# regex_text = re.compile(r'\b[a-z]{3,5}\b')
-# mo = regex_text.findall(text)
-# print(mo)

@@ -1,3 +1,8 @@
+# Glosary:
+# mo: Match object
+# regex: Regular Expresion abreviated
+
+
 # ^ Character anchors a match at the start of a strig.
 # $ Character anchors a match at the end of a string.
 # . Character matches any single character except a newline.
@@ -109,7 +114,6 @@ regex = re.compile(r'bar\Z', re.M)
 mo = regex.search(text)
 
 
-
 # \B Anchosr a match to a location that is not a word boundry
 
 regex = re.compile(r'\Bfoo\B')
@@ -120,3 +124,71 @@ print(mo)
 regex = re.compile(r'\bbar\b')
 mo = regex.search('bar foo baz')
 print(mo)
+
+regex = re.compile(r'(bar)')
+mo = regex.search('foo bar baz')
+print(mo)
+
+regex = re.compile(r'(bar)+')
+mo = regex.search('foo barbarbar baz')
+print(mo)
+
+regex = re.compile(r'bar+')
+mo = regex.search('foo barbarbar baz')
+print(mo)
+
+regex = re.compile(r'bar+')
+mo = regex.search('foo barr baz')
+print(mo)
+
+regex = re.compile(r'(ba[rz]){2,4}(qux)?') #here we are stating that the permutation
+#of bar or baz has to occur at list twice qux is optional
+mo = regex.search('bazbarbazqux')
+print(mo)
+regex = re.compile(r'(ba[rz]){2,4}(qux)?')
+mo = regex.search('barbazqux')
+print(mo)
+
+regex = re.compile(r'(ba[rz]){2,4}(qux)?')
+mo = regex.search('barbaz')
+print(mo)
+
+regex = re.compile(r'(ba[rz]){1,4}(qux)?')#Here we modified to search for at least one
+# permutation
+mo = regex.search('bazqux')
+print(mo)
+
+# Group and Groups
+regex = re.compile(r'(\w+),(\w+),(\w+)')
+mo = regex.search('foo,qux,bar')
+print(mo.groups()) #Here we are printin the tuple with al groups # type: ignore
+print(mo.group(1)) #Here we are printin group 1# type: ignore
+print(mo.group(2)) #Here we are printin group 2# type: ignore
+print(mo.group(3)) #Here we are printin group 3# type: ignore
+print(mo.group(2,3)) #Here we are printin groups 2 and3# type: ignore
+
+# Back References
+regex = re.compile(r'(\w+),\1') 
+mo= regex.search('love,love')
+print(mo) #Here we are referencing if the second group matches the first there for 
+# we return love love
+
+regex = re.compile(r'(\w+),\1')
+mo= regex.search('love,like')
+print(mo)#Here we are referencing if the second group matches the first there for 
+# we return None
+
+regex = re.compile(r'(\w+),\1')
+mo= regex.search('like,like')
+print(mo)#Here we are referencing if the second group matches the first there for 
+# we return like like
+
+regex = re.compile(r'([a-z])#\1')
+mo= regex.search('a#a')
+print(mo)#Here we are referencing if the second group matches the first there for 
+# we return a#a
+
+regex = re.compile(r'([a-z])#\1')
+mo= regex.search('l#l')
+print(mo)#Here we are referencing if the second group matches the first there for 
+# we return l#l

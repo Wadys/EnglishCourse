@@ -78,7 +78,7 @@ while True:
         for i in range(5):
             numbers[i] = int(numbers[i]) # type: ignore
     except ValueError:
-        print(f"Please enter numbers, instead of text {numbers[i]}")
+        print(f"Please enter numbers, instead of text {numbers[i]}") # type: ignore
         continue
 # Check that the numbers are between 1 and 69
     between_1_69 = True

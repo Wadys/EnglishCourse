@@ -83,3 +83,40 @@ print(mo)
 vowel_regex = re.compile(r'[aeiou]', re.IGNORECASE) # Same as re.IGNORECASE Ignores upper cases
 mo = vowel_regex.findall('I love Python')
 print(mo)
+
+
+#^ $ vs \A \Z
+# ^ and \A Ancors a match at the star of a string
+# $ and \Z Ancors a match at the end of a string
+
+text = "foobar"
+regex = re.compile(r'foo\A', re.I)
+mo = regex.search(text) #Returns foobar
+
+# ^ and \A Ancors a match at the star of a string
+text = "\nfoobar"
+regex = re.compile(r'foo\A', re.I)
+mo = regex.search(text) #Returns None because of the next line prior wich would work if 
+# using ^
+
+text = "foo\nbar\nbaz"
+regex = re.compile(r'bar\Z', re.M) #to fix this we use re.Multiline(re.M shorten)
+mo = regex.search(text)
+
+
+text = "foo\nbar\nbaz"
+regex = re.compile(r'bar\Z', re.M)
+mo = regex.search(text)
+
+
+
+# \B Anchosr a match to a location that is not a word boundry
+
+regex = re.compile(r'\Bfoo\B')
+mo = regex.search('barfoobaz')
+print(mo)
+
+# \b Anchosr a match to a word boundry
+regex = re.compile(r'\bbar\b')
+mo = regex.search('bar foo baz')
+print(mo)

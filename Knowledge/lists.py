@@ -38,7 +38,7 @@ myList = [1,2,3]
 print(myList)
 print("myList es de tipo: ",type(myList[0]))
 print("Los elementos de mi lista son: ",myList[0],myList[1],myList[2])
-myList.append("agregado") #esta funcion predeterminada agrega elementos a la lista
+myList.append("agregado") # type: ignore #esta funcion predeterminada agrega elementos a la lista
 print("Este es el contenido de myList despues deagregar un nuevo valor", myList)
 print("El largo de mi lista es de ",len(myList),"elementos") #Esta funcion retorna la longitud de la lista
 print("1. ",myList[0])

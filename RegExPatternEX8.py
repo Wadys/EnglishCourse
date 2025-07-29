@@ -27,5 +27,4 @@ def extract_email_improved(text):
     mo = regex_email.findall(text)
     return mo
 
-
 print(extract_email(text))

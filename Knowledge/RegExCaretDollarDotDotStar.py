@@ -192,3 +192,95 @@ regex = re.compile(r'([a-z])#\1')
 mo= regex.search('l#l')
 print(mo)#Here we are referencing if the second group matches the first there for 
 # we return l#l
+# RegEx Flags:
+# re.I  re.IGNORECASE   -Makes matchin of alphabetic characters case-insensitive
+# re.M  re.MULTILINE    -Causesstart og string an end of string anchors to match 
+#                       embedded newlines
+# re.S  re.DOTALL       -Causes the dot metacharacter to match a new line
+# re.X  re.VERVOSE      -Allows inclusion of whitespace and comments within a 
+#                       regular expression
+# -     re.DEBUG        -Causes the regex parser to display debugging information 
+#                       to the console
+# re.A  re.ASCII        -Specifies ASCII encoding for character clasiffication
+# re.U  re.UNICODE      -Specifies Unicode encoding for character clasiffication
+
+# re.I  re.IGNORECASE
+# The following examples do the same, look for a characters
+regex = re.compile(r'a+',re.IGNORECASE) 
+mo = regex.search('aaaaAAAA')
+print(mo)
+
+mo = re.search(r'a+','aaaaAAAA',re.IGNORECASE)
+print(mo)
+
+mo = re.search(r'a+','aaaaAAAA',re.I)
+print(mo)
+
+# re.M  re.MULTILINE
+custom_string = 'foo\nbar\nbaz'
+mo = re.search(r'foo', custom_string)
+print(mo) #Here foo is found at the start of the strng
+
+custom_string = 'foo\nbar\nbaz'
+mo = re.search(r'foo$', custom_string)
+print(mo) #Here None is returned because fooo is not at the end
+
+custom_string = 'foo\nbar\nbaz'
+mo = re.search(r'foo$', custom_string, re.MULTILINE)
+print(mo) #Here since we are looking for foo in multiple lines
+
+custom_string = 'foo\nbar\nbaz'
+mo = re.search(r'foo$', custom_string, re.M)
+print(mo) #Here since we are looking for foo in multiple lines
+
+# re.S  re.DOTALL
+custom_string = 'foo\nbar'
+mo = re.search(r'foo.bar', custom_string)
+print(mo) #Here the period is not recogniced and None is returned
+
+custom_string = 'foo\nbar'
+mo = re.search(r'foo.bar', custom_string, re.DOTALL)
+print(mo) #Here the period is reconiced as a new line there for the foo\nbar is returned
+
+custom_string = 'foo\nbar'
+mo = re.search(r'foo.bar', custom_string, re.S)
+print(mo) #Here the period is reconiced as a new line there for the foo\nbar is returned
+
+# re.X  re.VERVOSE
+regex_phone = r'''
+        ^                       # Start of string
+        (\(\d{3}\))?            # Optional area Code
+            \s*                 # Optional whitespace
+            \d{3}               # Three digit prefix
+            [-.]                # Separator character
+            \d{4}               # Four digit line number
+            $                   # Anchor for end of string
+            '''
+mo = re.search(regex_phone, '(123) 313-7878', re.VERBOSE)
+print(mo)
+
+# Searching funcions:
+# re.search:    Scan through string looking for a match to the pattern
+# re.match:     Matches pattern at the start of the string
+# re.fullmatch: Matches pattern in the entrie string
+# re.findall:   Returns a list of all regular expresion matching in a string
+# re.finditer:  Return an iterator over all non-overlapping matches in the string
+
+# Search:
+mo = re.search(r'[a-z]+', 'foo123BAZ')
+print(mo)
+
+mo = re.search(r'[a-z]+', 'FOO123BAZ', re.I)
+print(mo)
+
+mo = re.search(r'[a-z]+', 'FOO123BAZ')
+print(mo) 
+
+# Match:
+mo = re.match(r'[A-Z]+', 'FOO123BAZ')
+print(mo) #String starts with capital letters
+mo = re.match(r'\d+', 'FOO123BAZ') 
+print(mo) #String does not starts with digits there for None is returned 
+
+
+

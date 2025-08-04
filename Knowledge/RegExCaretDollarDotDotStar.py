@@ -363,10 +363,10 @@ print(mo)#Subn returns a tuple with the changes and the number of groups impacte
 
 
 # re.split():
-result = re.split('s*[,;/]\s*','foo,bar ; test / python')
+result = re.split('s*[,;/]\s*','foo,bar ; test / python') # type: ignore
 print(result)#We are spliting a string removing comas, slashes and semicolons
 
-result = re.split('(s*[,;/]\s*)','foo,bar ; test / python')
+result = re.split('(s*[,;/]\s*)','foo,bar ; test / python') # type: ignore
 print(result)#We are spliting in groups the different elements
 
 regex = r'(s*[,;/]\s*)'
@@ -417,6 +417,5 @@ print(result) #Needs the \ in all text to match
 regex = r'foo^bar(baz)|qux'
 result = re.match(re.escape(regex), 'foo^bar(baz)|qux')
 print(result) #The escape functions removes the need for the \ characters
- 
 
 

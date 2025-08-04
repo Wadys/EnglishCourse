@@ -282,5 +282,141 @@ print(mo) #String starts with capital letters
 mo = re.match(r'\d+', 'FOO123BAZ') 
 print(mo) #String does not starts with digits there for None is returned 
 
+#Fullmatch:
+mo = re.search(r'\d+', '123test')
+print(mo) #String findes and returns 123 
+#Vs
+mo = re.fullmatch(r'\d+', '123test')
+print(mo) #Returns None because it needs to meet the full criteria
+
+mo = re.fullmatch(r'\d+', '123523242')
+print(mo) #The full criteria is met so rturns the value
+mo = re.fullmatch(r'\w+', 'aqqdsdfsdsfdiugsduf')
+print(mo) #The full criteria is met so rturns the value
+
+#Findall:
+mo = re.findall(r'(\w+)', ',,..1235...23242...foo...bar....baz')
+print(mo) #Once the criteria is met the matches are added to a list
+
+#Finditer:
+for i in re.finditer(r'(\w+)', ',,..1235...23242...foo...bar....baz'):
+    print(i) #Return the iterable of the objet fund
+
+#Substitution Functions:
+#re.sub():      Scans a string for regex matches, replaces the matching portion of 
+#               the string with the specified replacement strig, and returns the result
+# re subn():    Behaves just like re.sub() but also returns information regarding 
+#               the number of substitutions made
+custom_text = '123.foo..456,bar-789.baz'
+result_string = re.sub(r'\d+','#',custom_text)#Replaces digits with #
+print(result_string)
+result_string = re.sub(r'[a-z]+','*',custom_text)#Replaces letters with *
+print(result_string)
+print(custom_text)
+result_string = re.sub(r'123.(\w+)\..456\,bar-789\.(\w+)',r'123.\2..456,bar-789.\1',custom_text)
+#Replaces the order of the strings switching the foo and the baz
+print(result_string)
+
+result_string = re.sub(r'123.(\w+)\..456\,bar-789\.(\w+)',
+                       r'123.\2..456,bar-789.\1',
+                       custom_text) #This is a more readable way to view it
+print('Readable view: '+result_string)
+
+result_string = re.sub(r'123.(?P<w1>\w+)\..456\,bar-789\.(?P<w2>\w+)',
+                       r'123.\g<w2>..456,bar-789.\g<w1>',
+                       custom_text) #In here we are using group names
+print('Group Name:    '+result_string)
+result_string = re.sub(r'123.(?P<w1>\w+)\..456\,bar-789\.(?P<w2>\w+)',
+                       r'123.\g<2>..456,bar-789.\g<1>',
+                       custom_text) #In here we are using group number
+print('Group Number:  '+result_string)
+# Ex: Add 0 at the end of every digit
+custom_string = 'foo 123 bar'
+result_string = re.sub(r'(\d+)', r'\g<1>0', custom_string)
+print(result_string)
+
+def f(match_obj):
+    s = match_obj.group(0)
+    if s.isdigit():
+        return str(int(s) * 10)
+    else:
+        return s.upper()
+mo = re.sub(r'\w+', f, 'foo.bar.10.baz.20')
+print(mo)# Here we use the F function to be executed for every matching criteria
+
+mo = re.sub(r'\w+', 'xxx', 'foo.bar.qux.baz', count=2)
+print(mo)#Here we are changing the xxx for the first two matching groups
+
+mo = re.sub(r'\w+', 'xxx', 'foo.bar.qux.baz', count=3)
+print(mo)#Here we are changing the xxx for the first three matching groups
+
+mo = re.subn(r'\w+', 'xxx', 'foo.bar.qux.baz', count=3)
+print(mo)#Subn returns a tuple with the changes and the number of groups impacted
+
+mo = re.subn(r'\w+', f, 'foo.bar.10.baz.20')
+print(mo)#Subn returns a tuple with the changes and the number of groups impacted by f
+
+
+#Utility Functions:
+# re.split():    Splits a string into substring usisg a regex as a delimiter
+# re.escape():   Escape characters ina a regex
+
+
+# re.split():
+result = re.split('s*[,;/]\s*','foo,bar ; test / python')
+print(result)#We are spliting a string removing comas, slashes and semicolons
+
+result = re.split('(s*[,;/]\s*)','foo,bar ; test / python')
+print(result)#We are spliting in groups the different elements
+
+regex = r'(s*[,;/]\s*)'
+result = re.split(regex,'foo,bar ; test / python')
+for i,s in enumerate(result):
+    if not re.fullmatch(regex, s):
+        result[i] = f'<{s}>'
+print(result)#We are spliting in groups the different elements and adding < > for the text ones
+
+regex = r'(s*[,;/]\s*)'
+result = re.split(regex,'foo,bar ; test / python')
+for i,s in enumerate(result):
+    if not re.fullmatch(regex, s):
+        result[i] = f'<{s}>'
+result= ''.join(result)
+print(result)#We are spliting in groups the different elements and adding < > for the 
+             #text ones adn returing it as a string
+
+regex = r'(s*[,;/]\s*)'
+result = re.split(regex,'foo,bar ; test / python')
+print(result) #Capturing all including the delemeters
+
+regex = r'(?:s*[,;/]\s*)'
+result = re.split(regex,'foo,bar ; test / python')
+print(result)#Capturing all without the delimiters
+
+regex = r'(?:s*[,;/]\s*)'
+result = re.split(regex,'foo,bar ; test / python',maxsplit=1)
+print(result)#Captures one parameter and the rest is entred in one string
+
+regex = r'(?:s*[,;/]\s*)'
+result = re.split(regex,'foo,bar ; test / python',maxsplit=2)
+print(result)#Captures two parameter and the rest is entred in one string
+
+regex = r'(?:s*[,;/]\s*)'
+result = re.split(regex,'foo,bar ; test / python',maxsplit=3)
+print(result)#Captures three parameter and the rest is entred in one string
+
+#re.escape
+regex = r'foo^bar(baz)|qux'
+result = re.match(regex, 'foo^bar(baz)|qux')
+print(result)#Doesn't match
+
+regex = r'foo\^bar\(baz\)\|qux'
+result = re.match(regex, 'foo^bar(baz)|qux')
+print(result) #Needs the \ in all text to match
+
+regex = r'foo^bar(baz)|qux'
+result = re.match(re.escape(regex), 'foo^bar(baz)|qux')
+print(result) #The escape functions removes the need for the \ characters
+ 
 
 

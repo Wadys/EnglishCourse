@@ -92,7 +92,7 @@ my_set.add(2) # Notice that 2 is not added twice
 print(len(my_set))
 
 while len(my_set) > 4:
-  print(my_set.pop())
+    print(my_set.pop())
 
 """IsDisJoin method"""
 
@@ -178,13 +178,13 @@ The remove method returns and error message when the element to be removed is no
 """
 
 fruits = set(("apple", "banana", "cherry", "grapes", "pear", "orange", "lemon"))
-fruits.remove("mango")
+fruits.remove("mango") # type: ignore
 
 fruits = set(("apple", "banana", "cherry", "grapes", "pear", "orange", "lemon"))
 print(fruits)
-fruits.discard("mango")
+fruits.discard("mango") # type: ignore
 fruits.discard("banana")
-fruits.discard("mango") #Notice mango is not in the set
+fruits.discard("mango") # type: ignore #Notice mango is not in the set
 print(fruits)
 
 """## Discarding using a List"""
@@ -193,7 +193,7 @@ fruits = {"apple", "banana", "cherry", "grapes", "pear", "orange", "lemon"}
 print(fruits)
 remove_list = ["apple", "cherry", "orange","Dragaon Furit"]
 for item in remove_list:
-  fruits.discard(item)
+    fruits.discard(item)
 print(fruits)
 
 """## Pop method
@@ -516,7 +516,7 @@ Implement a function which takes a parameter N and returns Set of numbers which 
 **My Solution**
 """
 
-def divisible_by_3and4(n):
+def divisible_by_3and4(n): # type: ignore
     set3 = set()
     set4 = set()
     for item in range(0, n):
@@ -564,7 +564,7 @@ find_prep(quote)
 quote = """Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do."""
 prep = {"as", "but", "by", "for", "in", "of", "on", "to", "with"}
 
-def find_prep(p_quote):
+def find_prep(p_quote): # type: ignore
     set_quote = set(p_quote.split(" "))
     return set.intersection(set_quote, prep)
 print(find_prep(quote))
